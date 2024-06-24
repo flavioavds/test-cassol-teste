@@ -4,8 +4,7 @@
 
 #### Objetivo
 
-Desenvolver uma API RESTful utilizando Java Spring Boot que permita gerenciar cursos e calcular a nota média dos alunos em um determinado curso. A aplicação deverá utilizar o banco de dados em memória H2.
-
+Foi Desenvolvido uma API RESTful utilizando Java Spring Boot que permite gerenciar cursos e calcular a nota média dos alunos em um determinado curso. A aplicação utiliza o banco de dados em memória H2. Projeto todo concluido com suas HTTP Status com seus respectivos codigos e tratados com suas exceções. O Objetivo foi realizado, e populado o banco de dados atraves do framework Flyway.
  
 
 #### Realização do Projeto
