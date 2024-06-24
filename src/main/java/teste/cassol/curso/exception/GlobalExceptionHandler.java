@@ -37,6 +37,46 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, headers, HttpStatus.NOT_FOUND);
     }
     
+    @ExceptionHandler(AlunoNotFoundException.class)
+    public ResponseEntity<Object> handleAlunoNotFoundException(AlunoNotFoundException ex, WebRequest request) {
+        String path = ((ServletWebRequest) request).getRequest().getRequestURI();
+        Map<String, Object> errorResponse = errorHandleResponse
+                .createCustomErrorResponse(HttpStatus.NOT_FOUND, ex.getMessage(), path);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(errorResponse, headers, HttpStatus.NOT_FOUND);
+    }
+    
+    @ExceptionHandler(MatriculaNotFoundException.class)
+    public ResponseEntity<Object> handleMatriculaNotFoundException(MatriculaNotFoundException ex, WebRequest request) {
+        String path = ((ServletWebRequest) request).getRequest().getRequestURI();
+        Map<String, Object> errorResponse = errorHandleResponse
+                .createCustomErrorResponse(HttpStatus.NOT_FOUND, ex.getMessage(), path);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(errorResponse, headers, HttpStatus.NOT_FOUND);
+    }
+    
+    @ExceptionHandler(MatriculaDuplicadaException.class)
+    public ResponseEntity<Object> handleMatriculaDuplicadaException(MatriculaDuplicadaException ex, WebRequest request) {
+        String path = ((ServletWebRequest) request).getRequest().getRequestURI();
+        Map<String, Object> errorResponse = errorHandleResponse
+        		.createCustomErrorResponse(HttpStatus.CONFLICT, ex.getMessage(), path);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(errorResponse, headers, HttpStatus.CONFLICT);
+    }
+    
+    @ExceptionHandler(InvalidNotaException.class)
+    public ResponseEntity<Object> handleInvalidNotaException(InvalidNotaException ex, WebRequest request) {
+        String path = ((ServletWebRequest) request).getRequest().getRequestURI();
+        Map<String, Object> errorResponse = errorHandleResponse
+        		.createCustomErrorResponse(HttpStatus.BAD_REQUEST, ex.getMessage(), path);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(errorResponse, headers, HttpStatus.BAD_REQUEST);
+    }
+    
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<Object> handleConstraintViolationException(ConstraintViolationException ex, WebRequest request) {
         String path = ((ServletWebRequest) request).getRequest().getRequestURI();

@@ -1,11 +1,12 @@
 package teste.cassol.curso.entities;
 
+import java.util.Random;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,6 @@ import lombok.NoArgsConstructor;
 public class Matricula {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
@@ -37,6 +37,17 @@ public class Matricula {
     public Matricula(Aluno aluno, Curso curso) {
         this.aluno = aluno;
         this.curso = curso;
+    }
+    
+    @PrePersist
+    public void generateId() {
+        this.id = generateRandomId();
+    }
+
+    private Long generateRandomId() {
+        Random random = new Random();
+        long randomId = 100000 + random.nextInt(900000);
+        return randomId;
     }
 
 }

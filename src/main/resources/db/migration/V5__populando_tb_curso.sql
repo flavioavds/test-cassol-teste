@@ -1,0 +1,3 @@
+INSERT INTO public.tb_curso (nome, descricao)
+VALUES ('Banco de Dados', 'O curso de Banco de Dados destina-se à formação de profissionais aptos para projetar e gerenciar base de dados, desenvolver métodos de segurança, administrar ambientes, controlar acessos, orientar a produção de documentos e projetos, entre outros.'),
+	   ('Analise e Desenvolvimento', 'A Análise e Desenvolvimento de Sistemas é o processo de criação de softwares para empresas, desde análise de necessidades até design, codificação, testes e documentação. O curso de Análise e Desenvolvimento de Sistemas é uma formação superior de tecnologia que prepara os estudantes para atuar no desenvolvimento e manutenção de sistemas computacionais.');

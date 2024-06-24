@@ -13,7 +13,9 @@ public class MatriculaDTOResponse {
 	
 	private Long id;
     private Long alunoId;
+    private String alunoNome;
     private Long cursoId;
+    private String cursoNome;
     private Double nota;
 
 }
